@@ -1,0 +1,18 @@
+if [ $# -eq 0 ]
+then
+echo "syntax is <$0><src1><des1><src2><des2>"
+exit 1
+fi
+r=`expr $# % 2`
+if [ $r -ne 0 ] 
+then
+echo "given files are not in pairs"
+exit 1
+fi
+while [ $# -gt 0 ]
+do
+cp $1 $2
+echo "copies $1 to $2"
+shift
+shift
+done
